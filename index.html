@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Registration Form</title>
+	<style>
+		:root{--bg:#f4f7fb;--card:#ffffff;--accent:#4f46e5;--muted:#6b7280;--error:#dc2626}
+		*{box-sizing:border-box}
+		body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);margin:0;line-height:1.4;color:#111}
+		.wrap{max-width:880px;margin:40px auto;padding:24px}
+		.card{background:var(--card);border-radius:12px;padding:28px;box-shadow:0 6px 20px rgba(16,24,40,.08)}
+		h1{margin:0 0 6px;font-size:20px}
+		p.lead{margin:0 0 18px;color:var(--muted)}
+		form{display:grid;gap:14px}
+		.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+		label{display:block;font-size:13px;margin-bottom:6px;color:#111}
+		input[type=text],input[type=email],input[type=password],input[type=tel],input[type=date],select,textarea{
+			width:100%;padding:10px 12px;border:1px solid #e6e9ef;border-radius:8px;background:#fff;font-size:14px}
+		textarea{min-height:80px;resize:vertical}
+		.small{font-size:13px;color:var(--muted)}
+		.actions{display:flex;gap:12px;align-items:center;margin-top:6px}
+		button{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+		button.secondary{background:#eef2ff;color:var(--accent);border:1px solid #e6e9ef}
+		.error{color:var(--error);font-size:13px;margin-top:6px}
+		.row{display:flex;gap:12px}
+		.terms{display:flex;gap:8px;align-items:flex-start}
+		.success{background:#ecfeff;border-left:4px solid #06b6d4;padding:12px;border-radius:8px;color:#065f46}
+		@media (max-width:640px){.grid{grid-template-columns:1fr}.wrap{margin:16px}}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="card">
+			<h1>Registration Form</h1>
+			<p class="lead">Sign up to access your dashboard — it only takes a minute.</p>
+
+			<form id="regForm" method="post" action="#">
+				<div class="grid">
+					<div>
+						<label for="firstName">First name</label>
+						<input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+						<div class="error" id="err-firstName" aria-live="polite"></div>
+					</div>
+					<div>
+						<label for="lastName">Last name</label>
+						<input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+						<div class="error" id="err-lastName" aria-live="polite"></div>
+					</div>
+				</div>
+
+				<div>
+					<label for="email">Email address</label>
+					<input id="email" name="email" type="email" autocomplete="email" required />
+					<div class="error" id="err-email" aria-live="polite"></div>
+				</div>
+
+				<div class="grid">
+					<div>
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" />
+						<div class="small">At least 8 characters.</div>
+						<div class="error" id="err-password" aria-live="polite"></div>
+					</div>
+					<div>
+						<label for="confirm">Confirm password</label>
+						<input id="confirm" name="confirm" type="password" autocomplete="new-password" required minlength="8" />
+						<div class="error" id="err-confirm" aria-live="polite"></div>
+					</div>
+				</div>
+
+				<div class="grid">
+					<div>
+						<label for="phone">Phone</label>
+						<input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555" />
+						<div class="error" id="err-phone" aria-live="polite"></div>
+					</div>
+					<div>
+						<label for="dob">Date of birth</label>
+						<input id="dob" name="dob" type="date" />
+					</div>
+				</div>
+
+				<div>
+					<label for="country">Country</label>
+					<select id="country" name="country">
+						<option value="">Select country</option>
+						<option>United States</option>
+						<option>Canada</option>
+						<option>United Kingdom</option>
+						<option>Australia</option>
+						<option>Other</option>
+					</select>
+				</div>
+
+				<div>
+					<label for="about">About you (optional)</label>
+					<textarea id="about" name="about" placeholder="Tell us a bit about yourself"></textarea>
+				</div>
+
+				<label class="terms">
+					<input id="terms" name="terms" type="checkbox" required />
+					<div class="small">I agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a>.</div>
+				</label>
+				<div class="error" id="err-terms" aria-live="polite"></div>
+
+				<div class="actions">
+					<button type="submit">Create account</button>
+					<button type="reset" class="secondary">Clear</button>
+				</div>
+			</form>
+			<div id="result" style="margin-top:14px"></div>
+		</div>
+	</div>
+
+	<!-- JavaScript removed per request; form uses native HTML5 validation and standard submit/reset behavior -->
+</body>
+</html>
